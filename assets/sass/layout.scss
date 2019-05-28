@@ -1,0 +1,17 @@
+$col-unit: 100% / 12;
+
+@media (min-width: 600px) {
+  .wp-block-column {
+    &:nth-child(1) {
+      .cols-3to9 & {
+        flex-basis: calc(#{$col-unit} * 3 - 16px);
+      }
+    }
+
+    &:nth-child(2) {
+      .cols-3to9 & {
+        flex-basis: calc(#{$col-unit} * 9 - 16px);
+      }
+    }
+  }
+}

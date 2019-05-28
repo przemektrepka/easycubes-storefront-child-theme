@@ -1,0 +1,45 @@
+// Start Fixes
+
+#page {
+  margin: 0 auto;
+  width: var(--container-max-width);
+}
+
+.site {
+  overflow-x: unset;
+}
+
+.container {
+  max-width: var(--container-max-width);
+}
+
+.woocommerce-breadcrumb a:first-of-type::before { content: unset; }
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.site-header {
+  padding: 2rem 0;
+
+  .custom-logo-link,
+  .site-logo-anchor,
+  .site-logo-link {
+    display: inline;
+
+    img {
+      display: inline;
+    }
+  }
+
+  .site-info {
+    padding: 0;
+  }
+
+  a {
+    &.added_to_cart.wc-forward {
+      color: var(--brand--white);
+    }
+  }
+}

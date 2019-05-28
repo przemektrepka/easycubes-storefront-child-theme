@@ -1,0 +1,1 @@
+# easycubes-storefront-child-theme
