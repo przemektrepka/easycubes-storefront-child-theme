@@ -1,1 +1,1 @@
-# easycubes-storefront-child-theme
+# Easy Cubes WooCommerce Storefront Child Theme
