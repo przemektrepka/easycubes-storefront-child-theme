@@ -7,22 +7,24 @@ function do_after_theme_setup() {
   remove_theme_support( 'wc-product-gallery-zoom' );
 }
 
-
-// Register Custom Navigation Walker
+// Register Custom stuff
 require_once get_stylesheet_directory() . '/inc/class-wp-bootstrap-navwalker.php';
+require_once get_stylesheet_directory() . '/inc/bootstrap-woocommerce-input-field-class.php';
 
 function child_theme_scripts()
 {
     // Bootstrap 4
-    wp_enqueue_style('bootstrap4', '//stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css');
     wp_enqueue_script('modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js', array(), '', true);
     wp_enqueue_script('boot1', '//code.jquery.com/jquery-3.3.1.slim.min.js', array('jquery'), '', true);
     wp_enqueue_script('boot2', '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array('jquery'), '', true);
     wp_enqueue_script('boot3', '//stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', array('jquery'), '', true);
+    wp_enqueue_style('bootstrap4', '//stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', array('storefront-style','storefront-woocommerce-style'));
+    // Remove parent style
+    // wp_dequeue_style( 'storefront-style' );
 
     // Child Theme Style
     $style_cache_buster = date("YmdHi", filemtime(get_stylesheet_directory() . '/assets/css/style.css'));
-    wp_enqueue_style('theme', get_stylesheet_directory_uri() . '/assets/css/style.css', array(), $style_cache_buster, 'all');
+    wp_enqueue_style('storefront-child-style', get_stylesheet_directory_uri() . '/assets/css/style.css', array('storefront-style','storefront-woocommerce-style'), $style_cache_buster, 'all');
 }
 add_action('wp_enqueue_scripts', 'child_theme_scripts', 20);
 
@@ -149,3 +151,15 @@ function storefront_footer_navigation()
     <?php
   }
 }
+
+/**
+ * My Account Page
+ */
+function iconic_save_account_fields($customer_id) {
+  if (isset($_POST['account_vat'])) {
+    if ($customer_id) {
+      update_field('vat_number', $_POST['account_vat'], $customer_id);
+    }
+  }
+}
+add_action('woocommerce_save_account_details', 'iconic_save_account_fields'); // edit WC account

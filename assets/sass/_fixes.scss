@@ -39,7 +39,7 @@ ul {
 
   a {
     &.added_to_cart.wc-forward {
-      color: var(--brand--white);
+      color: $brand--white;
     }
   }
 }

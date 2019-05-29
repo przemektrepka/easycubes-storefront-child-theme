@@ -1,6 +1,6 @@
 // Navigtions
 .site-header {
-  border-bottom: 1px solid var(--brand--g7);
+  border-bottom: 1px solid $brand--g7;
   margin-bottom: 2rem;
   padding-bottom: 2rem;
   padding-top: 2rem;
@@ -12,14 +12,14 @@
     line-height: 1rem;
 
     a {
-      color: var(--brand--g4);
+      color: $brand--g4;
       font-size: 1.35em;
       font-weight: 600;
       text-decoration: none;
 
       &:hover,
       &:active {
-        color: var(--brand--blue);
+        color: $brand--blue;
       }
     }
   }
@@ -27,7 +27,7 @@
 
 .site-footer {
   background-color: transparent;
-  border-top: 1px solid var(--brand--g7);
+  border-top: 1px solid $brand--g7;
   padding: 3rem 0;
 
   .nav {
@@ -36,7 +36,7 @@
 
   a {
     &.nav-link {
-      color: var(--brand--g4);
+      color: $brand--g4;
       display: inline-block;
       font-size: 1rem;
       margin: 0 1rem;
@@ -59,24 +59,24 @@
     text-transform: uppercase;
 
     a {
-      color: var(--brand--g7);
+      color: $brand--g7;
       display: inline-block;
       text-decoration: none;
       transition: color .36s;
 
       &:hover {
-        color: var(--brand--g3);
+        color: $brand--g3;
       }
     }
   }
 
   .dot-separator {
-    color: var(--brand--g7);
+    color: $brand--g7;
     line-height: calc(.9rem - 3px);
     margin: 0 1rem;
 
     .dot {
-      background-color: var(--brand--g7);
+      background-color: $brand--g7;
       border-radius: 50%;
       display: inline-block;
       height: 3px;
