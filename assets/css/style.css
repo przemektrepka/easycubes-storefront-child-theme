@@ -174,6 +174,93 @@ textarea {
   vertical-align: baseline;
 }
 
+.woocommerce-address-fields__field-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.woocommerce-address-fields__field-wrapper p {
+  margin: 0 0 1.6rem;
+  padding: 0;
+}
+.woocommerce-address-fields__field-wrapper .form-row-first,
+.woocommerce-address-fields__field-wrapper .form-row-last {
+  width: calc(50% - 15px);
+}
+.woocommerce-address-fields__field-wrapper .form-row-first {
+  margin-right: 15px;
+}
+.woocommerce-address-fields__field-wrapper .form-row-last {
+  margin-left: 15px;
+}
+
+#billing_first_name_field {
+  order: 1;
+}
+
+#billing_last_name_field {
+  order: 2;
+}
+
+#billing_company_field {
+  order: 3;
+}
+
+#billing_address_1_field {
+  order: 4;
+}
+
+#billing_address_2_field {
+  order: 5;
+  width: 100%;
+}
+
+#billing_city_field {
+  margin-right: 15px;
+  order: 6;
+  width: calc(50% - 15px);
+}
+
+#billing_postcode_field {
+  margin-left: 15px;
+  order: 7;
+  width: calc(50% - 15px);
+}
+
+#billing_state_field {
+  order: 8;
+}
+
+#billing_country_field {
+  order: 9;
+}
+
+#billing_phone_field {
+  order: 10;
+}
+
+#billing_email_field {
+  order: 11;
+}
+
+.woocommerce-input-wrapper {
+  display: block;
+  width: 100%;
+}
+
+.custom-select {
+  border: 1px solid #a2a2a2;
+  border-radius: 0.256rem;
+  box-shadow: 0 0 0 0 rgba(38, 153, 214, 0);
+  color: #737272;
+  font-size: 1rem;
+  padding: 0.4266666667rem 0.64rem;
+}
+.custom-select:focus {
+  background-color: #fff;
+  border-color: #4aa3db;
+  box-shadow: 0 0 0 0.2rem rgba(38, 153, 214, 0.1);
+}
+
 input[type=button], input[type=reset], input[type=submit] {
   -webkit-appearance: none;
   background: 0 0;
@@ -335,35 +422,43 @@ button.small {
   padding: 0.48rem 0.8rem;
 }
 
-button.alt, button.cta,
-.button.alt,
-.button.cta,
-.add-to-cart.alt,
-.add-to-cart.cta {
+.btn-brand {
+  text-decoration: none !important;
   background-color: #2699d6;
-  border-color: #2699d6;
+  border-color: #0084bf;
+  color: #fff !important;
 }
-button.alt:hover, button.cta:hover,
-.button.alt:hover,
-.button.cta:hover,
-.add-to-cart.alt:hover,
-.add-to-cart.cta:hover {
+.btn-brand:hover, .btn-brand:focus, .btn-brand:active, .btn-brand.active {
+  background-color: #007ab4;
+  border-color: #0070a8;
+  color: #fff;
+}
+.btn-brand:active, .btn-brand.active {
+  background-image: none;
+}
+.btn-brand.disabled, .btn-brand[disabled] {
   background-color: #2699d6;
+  border-color: #0084bf;
 }
-button.disabled, button:disabled,
-.button.disabled,
-.button:disabled,
-.add-to-cart.disabled,
-.add-to-cart:disabled {
-  cursor: not-allowed;
-  opacity: 0.5 !important;
+.btn-brand.disabled:hover, .btn-brand.disabled:focus, .btn-brand.disabled:active, .btn-brand.disabled.active, .btn-brand[disabled]:hover, .btn-brand[disabled]:focus, .btn-brand[disabled]:active, .btn-brand[disabled].active {
+  background-color: #2699d6;
+  border-color: #0084bf;
 }
-button.disabled:hover, button:disabled:hover,
-.button.disabled:hover,
-.button:disabled:hover,
-.add-to-cart.disabled:hover,
-.add-to-cart:disabled:hover {
-  opacity: 0.5 !important;
+.btn-brand .open .dropdown-toggle.btn-brand {
+  background-color: #007ab4;
+  border-color: #0084bf;
+  color: #fff;
+}
+.btn-brand .open .dropdown-toggle.btn-brand {
+  background-image: none;
+}
+fieldset[disabled] .btn-brand, fieldset[disabled] .btn-brand:hover, fieldset[disabled] .btn-brand:focus, fieldset[disabled] .btn-brand:active, fieldset[disabled] .btn-brand.active {
+  background-color: #2699d6;
+  border-color: #0084bf;
+}
+.btn-brand .badge {
+  color: #2699d6;
+  background-color: #fff;
 }
 
 #page {

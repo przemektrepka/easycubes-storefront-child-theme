@@ -13,6 +13,94 @@ textarea {
   vertical-align: baseline;
 }
 
+// Reorder and pimp the address form
+.woocommerce-address-fields__field-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+
+  p {
+    margin: 0 0 #{$input-space-root*2.5};
+    padding: 0;
+  }
+
+  .form-row-first,
+  .form-row-last {
+    width: calc(50% - 15px);
+  }
+
+  .form-row-first { margin-right: 15px; }
+  .form-row-last { margin-left: 15px; }
+}
+
+#billing_first_name_field {
+  order: 1;
+}
+
+#billing_last_name_field {
+ order: 2;
+}
+
+#billing_company_field {
+  order: 3;
+}
+
+#billing_address_1_field {
+  order: 4;
+}
+
+#billing_address_2_field {
+  order: 5;
+  width: 100%;
+}
+
+#billing_city_field {
+  margin-right: 15px;
+  order: 6;
+  width: calc(50% - 15px);
+}
+
+#billing_postcode_field {
+  margin-left: 15px;
+  order: 7;
+  width: calc(50% - 15px);
+}
+
+#billing_state_field {
+  order: 8;
+}
+
+#billing_country_field {
+  order: 9;
+}
+
+#billing_phone_field {
+  order: 10;
+}
+
+#billing_email_field {
+  order: 11;
+}
+
+.woocommerce-input-wrapper {
+  display: block;
+  width: 100%;
+}
+
+.custom-select {
+  border: 1px solid $brand--g4;
+  border-radius: #{$input-space-root/2.5};
+  box-shadow: 0 0 0 0 rgba($brand--blue, .0);
+  color: $brand--g2;
+  font-size: 1rem;
+  padding: #{$input-space-root/1.5} $input-space-root;
+
+  &:focus {
+    background-color: $white;
+    border-color: $brand--l1;
+    box-shadow: 0 0 0 .2rem rgba($brand--blue, .1);
+  }
+}
+
 input {
   &[type='button'],
   &[type='reset'],
@@ -202,27 +290,87 @@ button {
 
 }
 
-button,
-.button,
-.add-to-cart {
-  &.alt,
-  &.cta {
-    background-color: $brand--blue;
-    border-color: $brand--blue;
+// button,
+// .button,
+// .add-to-cart {
+//   &.alt,
+//   &.cta {
+//     background-color: $brand--blue;
+//     border-color: $brand--blue;
 
-    &:hover {
-      background-color: $brand--blue;
-    }
+//     &:hover {
+//       background-color: $brand--blue;
+//     }
+//   }
+
+//   &.disabled,
+//   &:disabled {
+//     cursor: not-allowed;
+//     opacity: .5 !important;
+
+//     &:hover {
+//       opacity: .5 !important;
+//     }
+//   }
+
+// }
+
+// Bootstrap Brand Button
+.btn-brand {
+  text-decoration: none !important;
+  background-color: $brand--blue;
+  border-color: $brand--d2;
+  color: $white !important;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    background-color: $brand--d3;
+    border-color: $brand--d4;
+    color: $white;
+  }
+
+  &:active,
+  &.active {
+    background-image: none;
   }
 
   &.disabled,
-  &:disabled {
-    cursor: not-allowed;
-    opacity: .5 !important;
+  &[disabled] {
+    background-color: $brand--blue;
+    border-color: $brand--d2;
 
-    &:hover {
-      opacity: .5 !important;
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: $brand--blue;
+      border-color: $brand--d2;
     }
   }
 
+  .open .dropdown-toggle#{&} {
+    background-color: $brand--d3;
+    border-color: $brand--d2;
+    color: $white;
+  }
+
+  .open .dropdown-toggle#{&} {
+    background-image: none;
+  }
+
+  fieldset[disabled] &,
+  fieldset[disabled] &:hover,
+  fieldset[disabled] &:focus,
+  fieldset[disabled] &:active,
+  fieldset[disabled] &.active {
+    background-color: $brand--blue;
+    border-color: $brand--d2;
+  }
+
+  .badge {
+    color: $brand--blue;
+    background-color: $white;
+  }
 }
