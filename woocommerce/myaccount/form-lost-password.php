@@ -22,7 +22,7 @@ do_action( 'woocommerce_before_lost_password_form' );
 <div>
 	<div class="row justify-content-center">
 		<div class="col col-5">
-			<h2><p><?php echo apply_filters( 'woocommerce_lost_password_message', esc_html__( 'Lost your password? Please enter your username or email address. You will receive a link to create a new password via email.', 'woocommerce' ) ); ?></p><?php // @codingStandardsIgnoreLine ?></h2>
+			<p><?php echo apply_filters( 'woocommerce_lost_password_message', esc_html__( 'Lost your password? Please enter your username or email address. You will receive a link to create a new password via email.', 'woocommerce' ) ); ?></p><?php // @codingStandardsIgnoreLine ?>
 		</div>
 		<div class="w-100"></div>
 		<div class="col col-3">
