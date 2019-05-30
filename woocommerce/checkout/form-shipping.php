@@ -27,22 +27,26 @@ defined( 'ABSPATH' ) || exit;
 			</label>
 		</h3>
 
-		<div class="shipping_address">
+		<div class="row justify-content-end">
+			<div class="col col-9">
+				<div class="shipping_address">
 
-			<?php do_action( 'woocommerce_before_checkout_shipping_form', $checkout ); ?>
+					<?php do_action( 'woocommerce_before_checkout_shipping_form', $checkout ); ?>
 
-			<div class="woocommerce-shipping-fields__field-wrapper">
-				<?php
-				$fields = $checkout->get_checkout_fields( 'shipping' );
+					<div class="woocommerce-shipping-fields__field-wrapper">
+						<?php
+						$fields = $checkout->get_checkout_fields( 'shipping' );
 
-				foreach ( $fields as $key => $field ) {
-					woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
-				}
-				?>
+						foreach ( $fields as $key => $field ) {
+							woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
+						}
+						?>
+					</div>
+
+					<?php do_action( 'woocommerce_after_checkout_shipping_form', $checkout ); ?>
+
+				</div>
 			</div>
-
-			<?php do_action( 'woocommerce_after_checkout_shipping_form', $checkout ); ?>
-
 		</div>
 
 	<?php endif; ?>

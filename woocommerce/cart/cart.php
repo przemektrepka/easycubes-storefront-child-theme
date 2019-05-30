@@ -22,7 +22,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
 	<?php do_action( 'woocommerce_before_cart_table' ); ?>
 
-	<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents table" cellspacing="0">
+	<table class="woocommerce-cart-form__contents table" cellspacing="0">
 		<thead>
 			<tr>
 				<th scope="col" class="product-remove">&nbsp;</th>
@@ -115,7 +115,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 						?>
 					</td>
 
-					<td class="product-subtotal" data-title="<?php esc_attr_e( 'Total', 'woocommerce' ); ?>">
+					<td class="product-subtotal font-weight-bold" data-title="<?php esc_attr_e( 'Total', 'woocommerce' ); ?>">
 						<?php
 								echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
 								?>
@@ -130,11 +130,11 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 				<tr>
 					<td colspan="6" class="actions">
-						<div class="row justify-content-between">
-							<div class="col col-md-4">
+						<div class="row justify-content-between no-gutters">
+							<div class="col col-md-3">
 								<?php if ( wc_coupons_enabled() ) { ?>
-									<div class="input-group mb-3">
-										<label for="coupon_code"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label>
+									<label for="coupon_code"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label>
+									<div class="input-group">
 										<input type="text" class="form-control" name="coupon_code" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" />
 										<div class="input-group-append">
 											<button class="btn btn-outline-secondary" type="submit" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?></button>
@@ -143,7 +143,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 									<?php do_action( 'woocommerce_cart_coupon' ); ?>
 								<?php } ?>
 							</div>
-							<div class="col">
+							<div class="col text-right">
 								<button type="submit" class="btn btn-brand" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
 							</div>
 						</div>

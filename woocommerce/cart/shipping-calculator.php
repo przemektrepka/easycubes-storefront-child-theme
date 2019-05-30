@@ -83,7 +83,7 @@ do_action( 'woocommerce_before_shipping_calculator' ); ?>
 			</p>
 		<?php endif; ?>
 
-		<p><button type="submit" name="calc_shipping" value="1" class="button"><?php esc_html_e( 'Update', 'woocommerce' ); ?></button></p>
+		<p class="text-right"><button type="submit" name="calc_shipping" value="1" class="btn btn-outline-secondary"><?php esc_html_e( 'Update', 'woocommerce' ); ?></button></p>
 		<?php wp_nonce_field( 'woocommerce-shipping-calculator', 'woocommerce-shipping-calculator-nonce' ); ?>
 	</section>
 </form>

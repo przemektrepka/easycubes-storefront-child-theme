@@ -1,3 +1,5 @@
+$spacing: 1rem;
+
 @media (min-width: 600px) {
   .wp-block-column {
     &:nth-child(1) {
@@ -11,5 +13,27 @@
         flex-basis: calc(#{$col-unit} * 9 - 16px);
       }
     }
+  }
+}
+
+.page-template-default.page.woocommerce-page {
+
+  @media screen and (min-width: map-get($grid-breakpoints, 'md') ) {
+    .storefront-breadcrumb {
+      margin: 0;
+      padding: #{$spacing*1.36} 0;
+    }
+
+    .entry-header {
+      padding: #{$spacing * 2} 0;
+
+      h1 {
+        font-size: 3rem;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+      }
+    }
+
   }
 }

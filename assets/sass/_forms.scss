@@ -13,8 +13,11 @@ textarea {
   vertical-align: baseline;
 }
 
-// Reorder and pimp the address form
-.woocommerce-address-fields__field-wrapper {
+// Reorder and pimp the address forms
+
+.woocommerce-address-fields__field-wrapper,
+.woocommerce-billing-fields__field-wrapper,
+.woocommerce-shipping-fields__field-wrapper {
   display: flex;
   flex-wrap: wrap;
 
@@ -128,10 +131,6 @@ input {
         background-color: $brand--blue;
       }
     }
-  }
-
-  &:hover {
-    color: $white;
   }
 
   &.loading {
