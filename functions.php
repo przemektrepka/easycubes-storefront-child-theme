@@ -19,8 +19,6 @@ function child_theme_scripts()
     wp_enqueue_script('boot2', '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array('jquery'), '', true);
     wp_enqueue_script('boot3', '//stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', array('jquery'), '', true);
     wp_enqueue_style('bootstrap4', '//stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', array('storefront-style','storefront-woocommerce-style'));
-    // Remove parent style
-    // wp_dequeue_style( 'storefront-style' );
 
     // Child Theme Style
     $style_cache_buster = date("YmdHi", filemtime(get_stylesheet_directory() . '/assets/css/style.css'));
