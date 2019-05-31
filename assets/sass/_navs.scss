@@ -1,4 +1,4 @@
-// Navigtions
+// Header navigtions
 .site-header {
   border-bottom: 1px solid $brand--g7;
   margin-bottom: 2rem;
@@ -23,8 +23,102 @@
       }
     }
   }
+
+  .woocommerce-active & .site-header-cart {
+    float: none;
+    font-size: .8rem;
+    margin: .3rem 0;
+    padding: 0;
+    width: 100%;
+    transition: margin 360ms;
+
+    .cart-contents {
+      min-width: 23ex;
+      padding: 0;
+
+      &::after {
+        font-size: 1.35em;
+        line-height: 2em;
+        margin-top: .015em;
+        color: $brand--g4;
+      }
+
+      > span {
+        display: inline-block;
+        color: $brand--g4;
+      }
+
+      &:hover {
+        &::after,
+        > span {
+          color: $brand--blue;
+        }
+      }
+
+      .amount {
+        font-size: 1.35em;
+        font-weight: 600;
+        line-height: 2em;
+        text-decoration: none;
+      }
+    }
+
+    .cart_drawer {
+      position: relative;
+      width: 100%;
+      padding-bottom: 0;
+      transition: padding 360ms;
+
+      .widget_shopping_cart {
+        display: block;
+        background-color: $white;
+        box-shadow: 0 1rem 3rem rgba($black, .1);
+        left: initial;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        right: -15px;
+        top: 100%;
+        transition: opacity 450ms;
+        width: 200%;
+        font-size: 1rem;
+      }
+
+      .widget_shopping_cart_content,
+      .product_list_widget {
+        height: 100%;
+      }
+
+      .total {
+        background-color: $white;
+        border-width: 2px;
+        border-top: 1px solid rgba($black, .05);
+      }
+      .buttons {
+        background-color: $white;
+      }
+    }
+
+    &:hover {
+      margin-bottom: -1rem;
+
+      .cart_drawer {
+        padding-top: 1rem;
+      }
+
+      .widget_shopping_cart {
+        display: block;
+        opacity: 1;
+        font-size: 1rem;
+      }
+      .widget_shopping_cart_content {
+        height: 100%;
+      }
+    }
+  }
 }
 
+// Footer navigation
 .site-footer {
   background-color: transparent;
   border-top: 1px solid $brand--g7;
