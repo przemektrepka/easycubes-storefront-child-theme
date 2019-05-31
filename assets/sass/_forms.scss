@@ -13,6 +13,25 @@ textarea {
   vertical-align: baseline;
 }
 
+.select2-container--default {
+  .select2-selection--single {
+    height: 100%;
+    line-height: 2.5;
+
+    .select2-selection__arrow {
+      height: 100%;
+
+      b {
+        transition: border 200ms;
+      }
+    }
+
+    .select2-selection__rendered {
+      line-height: unset;
+    }
+  }
+}
+
 // Reorder and pimp the address forms
 
 .woocommerce-address-fields__field-wrapper,
@@ -197,6 +216,15 @@ input {
       color: $brand--g4;
     }
   }
+
+  &.input-text {
+    .form-row.woocommerce-invalid & {
+      box-shadow: inset 4px 0 0 $color-invalid;
+    }
+    .form-row.woocommerce-validated & {
+      box-shadow: inset 4px 0 0 $color-valid;
+    }
+  }
 }
 
 button::focus-inner,
@@ -263,7 +291,6 @@ button {
   background-color: $white;
   border: 0;
   border-color: $brand--g5;
-  border-radius: 0;
   color: $white;
   cursor: pointer;
   display: inline-block;
@@ -287,5 +314,18 @@ button {
     padding: #{$input-space-root*.75} #{$input-space-root*1.25};
   }
 
+}
+
+.woocommerce-message {
+  background-color: $neon-green;
+  color: rgba($black, .64);
+}
+
+.woocommerce-info {
+  background-color: $brand--blue;
+}
+
+.woocommerce-error {
+  background-color: $color-invalid;
 }
 

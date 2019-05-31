@@ -28,6 +28,15 @@ $brand--g7:     #e2e2e2 !default;
 $brand--white:  #f6f6f6 !default;
 $white:         #fff !default;
 
+$neon-green:    #3ee3ad !default;
+$green:         #00a97e !default;
+$red:           #e8695b !default;
+$purple:        #a62e72 !default;
+
+$color-valid:   $green !default;
+$color-invalid: $red !default;
+
+
 $col-unit:          100% / 12 !default;
 
 $line-height-lg:              1.5 !default;
@@ -35,9 +44,9 @@ $line-height-sm:              1.5 !default;
 $border-width:                1px !default;
 $link-color:                  $brand--d2;
 $link-hover-color:            $brand--blue;
-$border-radius-sm:            .05rem;
-$border-radius:               .15rem;
-$border-radius-lg:            .25rem;
+$border-radius:               .25rem;
+$border-radius-sm:            .15rem;
+$border-radius-lg:            .36rem;
 
 
 //Bootstrap vars
