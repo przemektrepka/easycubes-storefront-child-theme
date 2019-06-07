@@ -137,7 +137,7 @@ function change_breadcrumbs( $defaults ) {
  * @see  storefront_footer_widgets()
  * @see  storefront_footer_navigation()
  */
-add_action('storefront_child_footer', 'storefront_footer_widgets', 10);
+add_action('storefront_child_footer', 'storefront_child_footer_widgets', 10);
 add_action('storefront_child_footer', 'storefront_footer_navigation', 20);
 
 // Footer navigation
@@ -169,6 +169,51 @@ function storefront_footer_navigation() {
     <?php
   }
 }
+
+
+/**
+ * Display the footer widget regions.
+ *
+ * @since  1.0.0
+ * @return void
+ */
+function storefront_child_footer_widgets() {
+  $rows    = intval( apply_filters( 'storefront_footer_widget_rows', 1 ) );
+  $regions = intval( apply_filters( 'storefront_footer_widget_columns', 4 ) );
+
+  for ( $row = 1; $row <= $rows; $row++ ) :
+
+    // Defines the number of active columns in this footer row.
+    for ( $region = $regions; 0 < $region; $region-- ) {
+      if ( is_active_sidebar( 'footer-' . esc_attr( $region + $regions * ( $row - 1 ) ) ) ) {
+        $columns = $region;
+        break;
+      }
+    }
+
+    if ( isset( $columns ) ) :
+      ?>
+      <div class="footer-widgets row">
+        <?php
+        for ( $column = 1; $column <= $columns; $column++ ) :
+          $footer_n = $column + $regions * ( $row - 1 );
+
+          if ( is_active_sidebar( 'footer-' . esc_attr( $footer_n ) ) ) :
+            ?>
+            <div class="col footer-widget-<?php echo esc_attr( $column ); ?>">
+              <?php dynamic_sidebar( 'footer-' . esc_attr( $footer_n ) ); ?>
+            </div>
+            <?php
+          endif;
+        endfor;
+        ?>
+      </div>
+      <?php
+      unset( $columns );
+    endif;
+  endfor;
+}
+
 
 
 /**

@@ -20,7 +20,7 @@
 			/**
 			 * Functions hooked in to storefront_footer action
 			 *
-			 * @hooked storefront_footer_widgets - 10
+			 * @hooked storefront_child_footer_widgets - 10
 			 * @hooked storefront_footer_nav         - 20
 			 */
 			do_action( 'storefront_child_footer' );
