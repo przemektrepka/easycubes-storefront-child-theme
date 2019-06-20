@@ -1,10 +1,36 @@
 // Start Fixes
 
+a:focus,
+button:focus,
+.button.alt:focus,
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+input {
+  &[type='button']:focus,
+  &[type='reset']:focus,
+  &[type='submit']:focus,
+  &[type='email']:focus,
+  &[type='tel']:focus,
+  &[type='url']:focus,
+  &[type='password']:focus,
+  &[type='search']:focus {
+    outline: none;
+  }
+}
+
+.content-area {
+  float: none !important;
+}
+
+.content-area,
 .container,
 .row,
 .col {
   &::before {
-    content: none;
+    content: none !important;
   }
 }
 
@@ -13,6 +39,15 @@
   .site-main,
   .hentry {
     margin-bottom: 0;
+  }
+}
+
+.page,
+.hentry {
+  margin: 0 0 3rem;
+
+  .entry-taxonomy {
+    display: none;
   }
 }
 

@@ -32,6 +32,28 @@ textarea {
   }
 }
 
+// Hide downloads section
+.woocommerce-MyAccount-navigation-link--downloads {
+  display: none;
+  visibility: hidden;
+}
+
+// My Account nav icons
+a::before {
+  .woocommerce-MyAccount-navigation-link--orders & {
+    content: '\f482'!important;
+  }
+  .woocommerce-MyAccount-navigation-link--shop & {
+    content: '\f291'!important;
+  }
+  .woocommerce-MyAccount-navigation-link--edit-address & {
+    content: '\f48b'!important;
+  }
+  .woocommerce-MyAccount-navigation-link--edit-account & {
+    content: '\f2bd' !important;
+  }
+}
+
 // Reorder and pimp the address forms
 
 .woocommerce-address-fields__field-wrapper,
@@ -286,12 +308,10 @@ fieldset {
 .added_to_cart,
 .button,
 button {
-  -webkit-appearance: none;
-  background: 0 0;
-  background-color: $white;
+  // background-color: $white;
   border: 0;
-  border-color: $brand--g5;
-  color: $white;
+  // border-color: $brand--g5;
+  // color: $black;
   cursor: pointer;
   display: inline-block;
   font-weight: 600;

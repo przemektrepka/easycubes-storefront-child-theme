@@ -36,6 +36,11 @@ $purple:        #a62e72 !default;
 $color-valid:   $green !default;
 $color-invalid: $red !default;
 
+$high-box-shadow: 0 .64rem 1rem rgba($black, .1);
+$medium-box-shadow: 0 .36rem .64rem rgba($black, .1);
+$low-box-shadow: 0 .25rem 36rem rgba($black, .1);
+
+$general-transition: all 0.36s;
 
 $col-unit:          100% / 12 !default;
 
@@ -148,3 +153,7 @@ $grid-breakpoints: (
   // Extra large screen / wide desktop
   xl: 1200px
   );
+
+$phone-break: map-get($grid-breakpoints, 'sm');
+$tablet-break: map-get($grid-breakpoints, 'md');
+$desktop-break: map-get($grid-breakpoints, 'lg');

@@ -1,0 +1,23 @@
+.single-product {
+  .product {
+    overflow: visible !important;
+  }
+
+  .woocommerce-product-gallery {
+    li {
+      box-shadow: $medium-box-shadow;
+      margin-top: 0;
+      transition: $general-transition;
+
+      @media screen and (min-width: $tablet-break) {
+        margin-right: 1rem !important;
+        width: 5rem !important;
+      }
+
+      &:hover {
+        box-shadow: $high-box-shadow;
+        margin-top: -.36rem;
+      }
+    }
+  }
+}

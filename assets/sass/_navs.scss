@@ -1,9 +1,157 @@
-// Header navigtions
+$header--padding: 1rem;
+
+// Header navigtions + Fullscreen Menu
+.burger-toggle {
+  background-color: transparent !important;
+  font-size: 1.35em;
+  margin: 0;
+  padding: .5rem;
+  text-align: center !important;
+  transition: color .15s;
+}
+
+.fs-menu {
+  background-color: scale-color($brand--black, $lightness: -50%);
+  bottom: 0;
+  display: none;
+  left: 0;
+  overflow-y: scroll;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+
+  ul {
+    list-style: none !important;
+  }
+
+  .fs-menu-header {
+    border-bottom: 1px solid rgba($white, .05);
+    margin-bottom: 2rem;
+    padding: $header--padding 0;
+
+    .admin-bar & {
+      margin-top: 32px;
+    }
+
+    .burger-toggle {
+      color: rgba($white, .36);
+
+      &:hover,
+      &:active {
+        color: $white;
+      }
+    }
+
+    .custom-logo-link img,
+    .site-logo-anchor img,
+    .site-logo-link img {
+      display: inline;
+      filter: brightness(0) invert(100%);
+      max-width: 210px;
+      opacity: .36;
+    }
+  }
+
+  .fs-menu-contents {
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+    padding: 0;
+
+    .menu,
+    .sub-menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      a {
+        color: $white;
+      }
+    }
+
+    .menu {
+      > .menu-item {
+        border-top: 1px solid rgba($white, .036);
+        padding: 1.36rem 0;
+
+        &:first-child {
+          border-top: 0;
+          margin-top: 0;
+          padding-top: 0;
+        }
+
+        &:last-child {
+          padding-bottom: 0;
+        }
+
+        > a {
+          color: $brand--blue;
+          font-size: 2.36rem;
+          font-weight: 300;
+          line-height: 1;
+          transition: color 1s;
+
+          &:hover,
+          &:active {
+            color: $brand--l3;
+            transition: color .15s;
+          }
+        }
+      }
+
+      > .menu-item-has-children {
+        display: flex;
+
+        > a {
+          flex-basis: 50%;
+          pointer-events: none;
+        }
+      }
+
+      .sub-menu {
+        flex-basis: 50%;
+
+        a {
+          font-size: 1.1rem;
+          opacity: .64;
+          transition: opacity 1s;
+
+          &:hover,
+          &:active {
+            opacity: 1;
+            transition: opacity .15s;
+          }
+        }
+      }
+    }
+  }
+
+  .fs-menu-footer {
+    border-top: 1px solid rgba($white, .05);
+    margin-top: 2rem;
+    padding: 2rem 1rem;
+
+    a,
+    p {
+      color: rgba($white, .15);
+    }
+  }
+}
+
 .site-header {
   border-bottom: 1px solid $brand--g7;
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  padding-top: 2rem;
+  margin-bottom: 2rem !important;
+  padding-bottom: $header--padding;
+  padding-top: $header--padding;
+
+  .burger-toggle {
+    color: $brand--g4;
+
+    &:hover,
+    &:active {
+      color: $brand--blue;
+    }
+  }
 
   .top-nav {
     font-size: 0.8rem;
@@ -64,15 +212,16 @@
     }
 
     .cart_drawer {
-      position: relative;
-      width: 100%;
       padding-bottom: 0;
+      position: relative;
       transition: padding 360ms;
+      width: 100%;
 
       .widget_shopping_cart {
-        display: block;
         background-color: $white;
         box-shadow: 0 1rem 3rem rgba($black, .1);
+        display: block;
+        font-size: 1rem;
         left: initial;
         opacity: 0;
         overflow: hidden;
@@ -81,7 +230,6 @@
         top: 100%;
         transition: opacity 450ms;
         width: 200%;
-        font-size: 1rem;
       }
 
       .widget_shopping_cart_content,
@@ -91,8 +239,8 @@
 
       .total {
         background-color: $white;
-        border-width: 2px;
         border-top: 1px solid rgba($black, .05);
+        border-width: 2px;
       }
       .buttons {
         background-color: $white;
@@ -108,12 +256,36 @@
 
       .widget_shopping_cart {
         display: block;
-        opacity: 1;
         font-size: 1rem;
+        opacity: 1;
       }
       .widget_shopping_cart_content {
         height: 100%;
       }
+    }
+  }
+}
+
+.site-header-cartlink {
+  margin: .3rem 0;
+  padding: 0;
+
+  .cartlink {
+    color: $brand--g4;
+    font-size: 1.35em;
+
+    &::after {
+      content: '\f291';
+      display: inline-block;
+      font-family: 'Font Awesome 5 Free';
+      font-style: normal;
+      font-variant: normal;
+      font-weight: 400;
+      line-height: 1.618;
+    }
+
+    &:hover {
+      color: $brand--blue;
     }
   }
 }

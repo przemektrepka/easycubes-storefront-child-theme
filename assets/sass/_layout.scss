@@ -16,6 +16,16 @@ $spacing: 1rem;
   }
 }
 
+.padded-full-width {
+  margin: 0 -30px;
+  padding: ($spacing * 3);
+
+  .wp-block-image,
+  .wp-block-column {
+    margin-bottom: 0;
+  }
+}
+
 .page-template-default.page.woocommerce-page {
 
   @media screen and (min-width: map-get($grid-breakpoints, 'md') ) {
@@ -36,6 +46,12 @@ $spacing: 1rem;
     }
 
   }
+}
+
+.row-seperator {
+  background-color: rgba($brand--g7, .36);
+  height: 1px;
+  margin: 3rem 0;
 }
 
 .site-footer {

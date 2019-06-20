@@ -15,6 +15,8 @@
  * @version 2.6.0
  */
 
+// @TODO: Remove the billing address and have just the Shipping address
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
