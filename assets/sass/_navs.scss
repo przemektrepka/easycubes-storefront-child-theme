@@ -185,10 +185,12 @@ $header--padding: 1rem;
       padding: 0;
 
       &::after {
+        color: $brand--g4;
+        content: '\f07a';
+        font-family: 'Font Awesome 5 Free';
         font-size: 1.35em;
         line-height: 2em;
         margin-top: .015em;
-        color: $brand--g4;
       }
 
       > span {

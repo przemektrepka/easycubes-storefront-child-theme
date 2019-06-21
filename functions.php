@@ -1,6 +1,7 @@
 <?php
 
 include 'inc/childtheme-overwrites.php';
+include 'inc/childtheme-single-product-extension.php';
 include 'inc/ecorder.config.php';
 include 'inc/common-functions.php';
 include 'inc/header-functions.php';

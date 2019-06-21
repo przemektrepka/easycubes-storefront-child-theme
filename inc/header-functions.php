@@ -5,6 +5,9 @@
  * @see  storefront_site_branding()
  * @see  shop_primary_navigation()
  */
+
+$site_type = 'detail';
+
 add_action( 'storefront_child_burgermenu', 'header_burger_navigation', 100 );
 
 add_action( 'storefront_child_header', 'header_burger_trigger', 5 );
@@ -153,7 +156,8 @@ function shop_primary_navigation() {
 	<div class="col">
 		<div class="row justify-content-end">
 			<div class="col-auto"><?php clean_custom_menu('primary'); ?></div>
-			<div class="col-auto"><?php render_cart_in_header('wholesale'); ?></div>
+			<?php //@TODO: Condition the cart based on site type ?>
+			<div class="col-auto"><?php render_cart_in_header($site_type); ?></div>
 		</div>
 	</div>
 	<?php
