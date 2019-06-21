@@ -338,6 +338,30 @@ ul {
 }
 
 
+// -------------------------
+// Archive pages
+//
+
+.archive {
+  .storefront-breadcrumb {
+    margin: 0;
+  }
+  .woocommerce-products-header {
+    padding: 0;
+  }
+
+  .storefront-sorting {
+    display: none;
+  }
+}
+
+.tax-product_tag {
+  .woocommerce-products-header__title.page-title {
+    text-transform: capitalize;
+  }
+}
+
+
 
 // -------------------------
 // Single Product Page
@@ -350,8 +374,47 @@ ul {
       width: 64%;
     }
 
+    h1.product_title {
+      padding-bottom: 0;
+      margin-bottom: 2rem;
+    }
+
+    .price-n-cart {
+      padding: 1.36rem 0;
+      margin: 1rem 0 0;
+      border-bottom: 1px solid rgba($brand--g7, .5);
+      border-top: 1px solid rgba($brand--g7, .5);
+    }
+
     p.price {
       margin: 0;
+      padding-bottom: 0;
+
+      .amount::after {
+        content: ' exc. VAT';
+        font-size: 75%;
+        opacity: .5;
+      }
+    }
+
+    form.cart {
+      display: flex;
+      margin: 0;
+      padding: 0;
+
+      .quantity {
+        float: none;
+        margin-right: 1rem;
+
+        .qty {
+          text-align: left;
+          width: 5rem;
+        }
+      }
+
+      button {
+        width: 100%;
+      }
     }
   }
 }
@@ -359,22 +422,37 @@ ul {
 .single-product--extra-info {
   .panel {
     width: 100% !important;
+
+    &#tab-description {
+      padding:0 15px;
+    }
   }
 
   table {
     margin-bottom: 0;
 
-    tr {
+    th {
+      width: 25%;
       border-bottom: 2px solid $white;
     }
 
-    th {
-      width: 25%;
+    td {
+      background-color: transparent !important;
+      border-bottom: 1px solid rgba($brand--g7, .36);
+    }
+
+    p {
+      padding: 0;
     }
   }
 }
 .storefront-full-width-content{
   &.single-product {
+
+    .storefront-breadcrumb {
+      margin: 0 0 1rem;
+    }
+
     div.product {
       .woocommerce-product-gallery,
       .summary {
@@ -389,7 +467,9 @@ ul {
   .related.products>h2:first-child,
   .up-sells>h2:first-child {
     border-top: 1px solid $brand--g7;
-    margin-top: 7rem;
+    margin-bottom: .5rem;
+    margin-top: 4rem;
+    padding-bottom: .5rem;
     padding-top: 3rem;
     text-align: left;
   }

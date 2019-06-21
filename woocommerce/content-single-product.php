@@ -52,11 +52,14 @@ if ( post_password_required() ) {
 			 * Hook: woocommerce_single_product_summary.
 			 *
 			 * @hooked woocommerce_template_single_title - 5
+			 * @hooked woocommerce_template_single_before_price - 9
 			 * @hooked woocommerce_template_single_rating - 10
 			 * @hooked woocommerce_template_single_price - 10
-			 * @hooked woocommerce_template_single_excerpt - 20
-			 * @hooked show_attr_in_prod_summary - 21
+			 * @hooked woocommerce_template_single_after_price - 11
+			 * @hooked woocommerce_template_single_excerpt - 20 ---> REMOVED
 			 * @hooked woocommerce_template_single_add_to_cart - 30
+			 * @hooked woocommerce_template_single_after_atc - 31
+			 * @hooked show_attr_in_prod_summary - 35
 			 * @hooked woocommerce_template_single_meta - 40 --> REMOVED
 			 * @hooked woocommerce_template_single_sharing - 50
 			 * @hooked WC_Structured_Data::generate_product_data() - 60
