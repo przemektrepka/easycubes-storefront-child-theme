@@ -1418,6 +1418,7 @@ fieldset[disabled] .btn-brand, fieldset[disabled] .btn-brand:hover, fieldset[dis
 
 .site-footer {
   background-color: transparent;
+  border-top: 1px solid #e2e2e2;
   padding: 3rem 0;
 }
 .site-footer .nav {
