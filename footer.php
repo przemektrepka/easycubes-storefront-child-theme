@@ -12,7 +12,6 @@
 		</div>
 
   <?php wp_footer(); ?>
-  <?php do_action( 'storefront_child_footer' ); ?>
   <?php do_action( 'storefront_child__footer_fixed_overlay' ); ?>
 
 	<?php do_action( 'storefront_after_footer' ); ?>
