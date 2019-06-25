@@ -20,22 +20,43 @@ add_action( 'storefront_child_header', 'shop_primary_navigation', 15 );
  */
 function header_burger_trigger() {
 	?>
-	<div class="col-1">
-		<button id="screenMenuTrigger" class="burger-toggle" type="button" data-toggle="collapse" data-target="#burgerMenu .collapse" aria-controls="burgerMenu" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+	<div class="col-auto mr-4">
+		<button id="screenMenuShow" class="burger-toggle" type="button" data-toggle="collapse" data-target="#burgerMenu .collapse" aria-controls="burgerMenu" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
 	</div>
 
 	<script>
-		var $ = jQuery;
-		$(document).ready(function () {
+		console.clear();
 
-			$('#screenMenuTrigger').click(function () {
-				$('#burgerMenu').fadeIn('fast').toggleClass('present');
-			});
+		const app = (() => {
+			let body;
+			let menu_show;
+			let menu_hide;
+			// let menuItems;
 
-			$('#screenMenuHide').click(function () {
-				$('#burgerMenu').fadeOut('fast').toggleClass('present');
-			});
-		});
+			const init = () => {
+				body = document.querySelector('body');
+				menu_show = document.querySelector('#screenMenuShow');
+				menu_hide = document.querySelector('#screenMenuHide');
+				// menuItems = document.querySelectorAll('.nav__list-item');
+
+				applyListeners();
+			}
+
+			const applyListeners = () => {
+				menu_show.addEventListener('click', () => toggleClass(body, 'main-nav-active'));
+				menu_hide.addEventListener('click', () => toggleClass(body, 'main-nav-active'));
+			}
+
+			const toggleClass = (element, stringClass) => {
+				if (element.classList.contains(stringClass) )
+					element.classList.remove(stringClass);
+				else
+					element.classList.add(stringClass);
+			}
+
+			init();
+		})();
+
 	</script>
 	<?php
 }
@@ -45,7 +66,7 @@ function header_burger_navigation(){
 	<div id="burgerMenu" class="fs-menu">
 		<div class="container fs-menu-header">
 			<div class="row no-gutters align-items-center">
-				<div class="col col-1">
+				<div class="col col-auto mr-4">
 					<button id="screenMenuHide" class="burger-toggle" type="button" data-toggle="collapse" data-target="#burgerMenu .collapse" aria-controls="burgerMenu" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-times"></i></button>
 				</div>
 				<div class="col col-auto"><div id="site-branding"> <?php storefront_site_title_or_logo(); ?> </div></div>
@@ -70,14 +91,7 @@ function header_burger_navigation(){
 			</div>
 		</div>
 		<div class="container fs-menu-footer">
-			<div class="row justify-content-between">
-				<div class="col">
-					<?php wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?>
-				</div>
-				<div class="col col-auto">
-					<?php is_active_sidebar( 'fullscreen-menu-widgets' ); ?>
-				</div>
-			</div>
+			<?php wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?>
 		</div>
 	</div>
 	<?php

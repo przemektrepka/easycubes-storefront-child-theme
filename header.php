@@ -22,8 +22,9 @@ $bodyClasses = "order-page";
         {
             ?>
             <style type="text/css">
-                .bar,.spinner{
-                    top:32px !important;;
+                .bar,
+                .spinner {
+                    top:32px !important;
                 }
             </style>
     <?php

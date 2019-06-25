@@ -1,4 +1,7 @@
 $header--padding: 1rem;
+$brand--fancy-blue: #0e84ff;
+$transition--easing: cubic-bezier(.77,0,.175,1);
+$transition--length: .8;
 
 // Header navigtions + Fullscreen Menu
 .burger-toggle {
@@ -11,22 +14,64 @@ $header--padding: 1rem;
 }
 
 .fs-menu {
-  background-color: scale-color($brand--black, $lightness: -50%);
-  bottom: 0;
-  display: none;
+  // background-color: scale-color($brand--black, $lightness: -50%);
+  background-color: $brand--fancy-blue;
+  // display: none;
   left: 0;
   overflow-y: scroll;
   position: fixed;
   right: 0;
   top: 0;
+  transform: translateY(-100vh);
+  transition: transform $transition--easing $transition--length + s;
+  height: 100vh;
   z-index: 9999;
+
+  &::before,
+  &::after {
+    background: rgba($white, .2);
+    content: '';
+    height: 100vh;
+    position: fixed;
+    transform: translateY(50vh);
+    transition: transform $transition--easing $transition--length + s, height $transition--easing $transition--length + s;
+    width: 100vw;
+    z-index: -1;
+  }
+
+  &::after {
+    background: rgba($white, 1);
+    transition-delay: .05s, 1s;
+  }
+
+  &::before {
+    transition-delay: .15s, 1s;
+  }
+
+  .main-nav-active & {
+    transform: translateY(0vh);
+
+    &:before,
+    &:after {
+      height: 0;
+      transform: translateY(100vh);
+    }
+
+    &:after {
+      transition-delay: .15s, 0s;
+    }
+
+    &:before {
+      transition-delay: .05s, 0s;
+    }
+  }
 
   ul {
     list-style: none !important;
   }
 
   .fs-menu-header {
-    border-bottom: 1px solid rgba($white, .05);
+    // border-bottom: 1px solid rgba($brand--white, .36);
     margin-bottom: 2rem;
     padding: $header--padding 0;
 
@@ -35,11 +80,11 @@ $header--padding: 1rem;
     }
 
     .burger-toggle {
-      color: rgba($white, .36);
+      color: rgba($brand--white, .36);
 
       &:hover,
       &:active {
-        color: $white;
+        color: $brand--white;
       }
     }
 
@@ -47,15 +92,15 @@ $header--padding: 1rem;
     .site-logo-anchor img,
     .site-logo-link img {
       display: inline;
-      filter: brightness(0) invert(100%);
-      max-width: 210px;
-      opacity: .36;
+      filter: saturate(0%) brightness(300%);
+      max-width: 150px;
+      opacity: .75;
     }
   }
 
   .fs-menu-contents {
-    margin-bottom: 3rem;
-    margin-top: 3rem;
+    margin-bottom: 4rem;
+    margin-top: 4rem;
     padding: 0;
 
     .menu,
@@ -70,31 +115,99 @@ $header--padding: 1rem;
     }
 
     .menu {
+
       > .menu-item {
-        border-top: 1px solid rgba($white, .036);
-        padding: 1.36rem 0;
+        opacity: 0;
+        padding: 2rem 0;
+        position: relative;
+        transform: translate(0%, 100%);
+        transition-delay: $transition--length + s;
+        transition: opacity .2s ease, transform .3s ease;
 
         &:first-child {
-          border-top: 0;
-          margin-top: 0;
-          padding-top: 0;
+          padding-top: 0rem;
         }
 
-        &:last-child {
-          padding-bottom: 0;
+        .main-nav-active & {
+          opacity: 1;
+          transform: translateX(0%);
+          transition: opacity .3s ease, transform .3s ease;
+
+          @for $i from 0 through 5 {
+            &:nth-child(#{$i}){
+              transition-delay: $transition--length * $i / 8 + .5 + s;
+            }
+          }
         }
 
         > a {
-          color: $brand--blue;
+          color: $white;
+          display: block;
+          font-family: 'Barlow', sans-serif;
           font-size: 2.36rem;
-          font-weight: 300;
+          font-weight: 700;
           line-height: 1;
-          transition: color 1s;
+          margin-right: 60px;
+          text-align: right;
+          width: calc(100%/3 - 60px);
+          transition: color .5s;
+        }
+      }
+
+      &:hover {
+        > .menu-item {
+          > a {
+            color: rgba($white, .36);
+          }
 
           &:hover,
-          &:active {
-            color: $brand--l3;
-            transition: color .15s;
+          &:active,
+          &.active {
+            > a {
+              color: $white;
+            }
+          }
+        }
+      }
+
+      .sub-menu {
+        display: flex;
+        flex-flow: row wrap;
+        flex-basis: calc(100% * 2/3);
+
+        li {
+          flex-basis: calc((100% - 30px) / 3);
+          height: 0;
+          margin-right: 15px;
+          margin-top: calc((2.36rem - (1.1rem/2)) / 2);
+          opacity: 0;
+          transform: translateY(1rem);
+          transition: height .15s 0s, opacity .2s 0s, transform .3s 0s;
+
+          &:nth-child(3n) {
+            margin-right: 0;
+          }
+        }
+
+        a {
+          font-size: 1.1rem;
+
+          &:before{
+            content: "";
+            position: absolute;
+            background: $white;
+            width: 1rem;
+            height: 1px;
+            top: calc( 100% + .55rem );
+            transform: translate(0%, 0%);
+            transition: all .3s ease;
+            z-index: -1;
+          }
+
+          &:hover{
+            &:before{
+              width: 100%;
+            }
           }
         }
       }
@@ -102,24 +215,20 @@ $header--padding: 1rem;
       > .menu-item-has-children {
         display: flex;
 
-        > a {
-          flex-basis: 50%;
-          pointer-events: none;
-        }
-      }
-
-      .sub-menu {
-        flex-basis: 50%;
-
-        a {
-          font-size: 1.1rem;
-          opacity: .64;
-          transition: opacity 1s;
-
-          &:hover,
-          &:active {
+        &:hover {
+          .sub-menu li {
+            height: 1em;
             opacity: 1;
-            transition: opacity .15s;
+            transform: translateY(0);
+            transition-delay: .15s;
+          }
+        }
+
+        > a {
+          &:hover,
+          &:active,
+          &.active {
+            color: $white;
           }
         }
       }
@@ -139,13 +248,29 @@ $header--padding: 1rem;
   }
 
   .fs-menu-footer {
-    border-top: 1px solid rgba($white, .05);
+    border-top: 1px solid rgba($brand--white, .1);
+    bottom: 0;
+    left: 50%;
     margin-top: 2rem;
+    opacity: 0;
     padding: 2rem 1rem;
+    position: absolute;
+    transform: translate(-50%, 100%);
+    transition-delay: $transition--length + s;
+    transition: opacity .2s 1.36s, transform .3s 1.36s;
+
+    .main-nav-active & {
+      opacity: 1;
+      transform: translate(-50%, 0%);
+    }
 
     a,
     p {
-      color: rgba($white, .15);
+      color: rgba($white, .75);
+
+      &:hover {
+        color: $white;
+      }
     }
 
     .menu {
@@ -153,7 +278,7 @@ $header--padding: 1rem;
       justify-content: flex-end;
 
       .menu-item {
-        flex-basis: calc(100% / 6);
+        flex-basis: calc(100% / 5);
         text-align: right;
       }
     }

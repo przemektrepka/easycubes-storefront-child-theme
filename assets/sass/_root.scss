@@ -1,4 +1,5 @@
-@import 'https://fonts.googleapis.com/css?family=Titillium+Web:200, 400, 600, 700';
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:200,400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Barlow:200,400,600,700&display=swap');
 
 :root {
   --container-max-width: 97vw;
@@ -20,6 +21,9 @@ body, html {
   width: 100%;
   background-color: $white;
   font-family: 'Titillium Web', sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 b, strong { font-weight: 700; }

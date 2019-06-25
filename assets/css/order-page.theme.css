@@ -27,15 +27,6 @@ a, a:visited {color:var(--brand--blue);}
 a:hover, a:active {color:var(--brand--d7);}
 .form-control:focus { border-color: var(--brand--l1); box-shadow: 0 0 0 0.2rem var(--brand--l7); }
 
-/* Material Icons and animations */
-.has-icon {display: -webkit-flex; display: -moz-flex; display: -ms-flex; display: -o-flex; display: flex; align-items: center;}
-.material-icons.md-brand {color: var(--brand--blue);}
-.material-icons.md-auto { font-size: 1em; }
-.material-icons.md-1rem { font-size: 1rem; }
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
 .animate-transform { transition: transform 1s; }
 .flipped {transform: rotate3d(1, 0, 0, 180deg)}
 .col-seperator {padding: 0 .5px; flex-grow: 0; margin: -1rem 1rem; background-color: var(--brand--g7);}
