@@ -53,10 +53,19 @@ function header_burger_navigation(){
 		</div>
 		<div class="container fs-menu-contents">
 			<div class="row">
-				<div class="col col-4">
+				<div class="col col-9">
 					<?php wp_nav_menu( array( 'theme_location' => 'header-burger' ) ); ?>
 				</div>
 				<div class="col">
+					<?php
+					if ( is_active_sidebar( 'fullscreen-menu-widgets' ) ) :
+						?>
+						<div class="fs-menu-widgets">
+							<?php dynamic_sidebar( 'fullscreen-menu-widgets' ); ?>
+						</div>
+						<?php
+					endif;
+					?>
 				</div>
 			</div>
 		</div>

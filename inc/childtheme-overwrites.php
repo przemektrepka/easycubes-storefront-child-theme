@@ -35,7 +35,7 @@ function register_childtheme_sidebars() {
   );
   register_sidebar( $args );
 }
-add_action('widgets_init', 'register_childtheme_sidebars', 12);
+add_action('widgets_init', 'register_childtheme_sidebars', 5);
 
 // unregister menu locations
 function unregister_storefront_menus() {
