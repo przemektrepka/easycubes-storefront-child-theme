@@ -51,7 +51,7 @@ function header_burger_navigation(){
 				<div class="col col-auto"><div id="site-branding"> <?php storefront_site_title_or_logo(); ?> </div></div>
 			</div>
 		</div>
-		<div class="container fs-menu-contents collapse">
+		<div class="container fs-menu-contents">
 			<div class="row">
 				<div class="col col-4">
 					<?php wp_nav_menu( array( 'theme_location' => 'header-burger' ) ); ?>

@@ -135,6 +135,16 @@ $header--padding: 1rem;
     p {
       color: rgba($white, .15);
     }
+
+    .menu {
+      display: flex;
+      justify-content: flex-end;
+
+      .menu-item {
+        flex-basis: calc(100% / 6);
+        text-align: right;
+      }
+    }
   }
 }
 
@@ -302,15 +312,15 @@ $header--padding: 1rem;
     justify-content: flex-end;
   }
 
-  a {
-    &.nav-link {
-      color: $brand--g4;
-      display: inline-block;
-      font-size: 1rem;
-      margin: 0 1rem;
-      padding: 0;
-      text-decoration: none;
+  .menu-item {
+    display: inline-block;
+    font-size: 1rem;
+    margin: 0 1rem;
+    padding: 0;
 
+    a {
+      color: $brand--g4;
+      text-decoration: none !important;
       &:hover {
         color: $brand--g2;
       }

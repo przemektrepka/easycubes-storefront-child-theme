@@ -1906,6 +1906,42 @@ fieldset[disabled] .btn-brand, fieldset[disabled] .btn-brand:hover, fieldset[dis
   background-color: rgba(226, 226, 226, 0.36);
 }
 
+.single-product div.product .woocommerce-product-gallery img {
+  margin: 0 auto;
+  width: 64%;
+}
+.single-product div.product p.price {
+  margin: 0;
+}
+
+.single-product--extra-info .panel {
+  width: 100% !important;
+}
+.single-product--extra-info table {
+  margin-bottom: 0;
+}
+.single-product--extra-info table tr {
+  border-bottom: 2px solid #fff;
+}
+.single-product--extra-info table th {
+  width: 25%;
+}
+
+.storefront-full-width-content.single-product div.product .woocommerce-product-gallery,
+.storefront-full-width-content.single-product div.product .summary {
+  float: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.storefront-full-width-content .related.products > h2:first-child,
+.storefront-full-width-content .up-sells > h2:first-child {
+  border-top: 1px solid #e2e2e2;
+  margin-top: 7rem;
+  padding-top: 3rem;
+  text-align: left;
+}
+
 @media (min-width: 600px) {
   .cols-3to9 .wp-block-column:nth-child(1) {
     flex-basis: calc(8.3333333333% * 3 - 16px);

@@ -1,5 +1,6 @@
 // Start Fixes
 
+// Outline: none;
 a:focus,
 button:focus,
 .button.alt:focus,
@@ -14,15 +15,44 @@ input {
   &[type='submit']:focus,
   &[type='email']:focus,
   &[type='tel']:focus,
-  &[type='url']:focus,
+  &[type='url']:focus
   &[type='password']:focus,
   &[type='search']:focus {
     outline: none;
   }
 }
 
+// Clearfix cleaner
+header,
+footer,
+.comment-content,
+.entry-content,
+.site-content,
+.site-footer,
+.site-header,
+.footer-widgets {
+  &::after,
+  &::before {
+    content: none !important;
+    display: none !important;
+  }
+}
+
+// Float none
 .content-area {
   float: none !important;
+}
+
+// Display none
+.storefront-sorting {
+  display: none;
+}
+
+.archive {
+  .page-title,
+  .woocommerce-products-header {
+    padding-bottom: 0;
+  }
 }
 
 .content-area,
@@ -345,13 +375,19 @@ ul {
 
 .single-product {
   div.product {
-    .woocommerce-product-gallery img {
-      margin: 0 auto;
-      width: 64%;
+    .woocommerce-product-gallery img { margin: 0 auto; width: 64%;}
+    p.price { margin: 0;
+      &:after {
+        content: 'excl. VAT.';
+        opacity: 50%;
+        font-size: 75%;
+        display: inline-block;
+        margin-left: .36em;
+      }
     }
 
-    p.price {
-      margin: 0;
+    p {
+      padding: 0; margin: 0;
     }
   }
 }
@@ -373,7 +409,7 @@ ul {
     }
   }
 }
-.storefront-full-width-content{
+.storefront-full-width-content {
   &.single-product {
     div.product {
       .woocommerce-product-gallery,

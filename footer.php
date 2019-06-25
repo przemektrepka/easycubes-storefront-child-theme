@@ -8,13 +8,20 @@
  */
 
 ?>
+  <!-- do_action( 'storefront_before_footer' ); -->
+  <?php do_action( 'storefront_before_footer' ); ?>
 
-		</div>
+    <footer id="colophon" class="site-footer" role="contentinfo">
+      <!-- do_action( 'storefront_child_footer' ); -->
+      <?php do_action( 'storefront_child_footer' ); ?>
+    </footer>
 
+  <!-- do_action( 'storefront_after_footer' ); -->
+  <?php do_action( 'storefront_after_footer' ); ?>
+
+  </div>
+
+  <!-- wp_footer(); -->
   <?php wp_footer(); ?>
-  <?php do_action( 'storefront_child__footer_fixed_overlay' ); ?>
-
-	<?php do_action( 'storefront_after_footer' ); ?>
-
 </body>
 </html>

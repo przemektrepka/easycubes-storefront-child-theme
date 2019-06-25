@@ -835,12 +835,40 @@ textarea:focus {
   outline: none;
 }
 
-input[type=button]:focus, input[type=reset]:focus, input[type=submit]:focus, input[type=email]:focus, input[type=tel]:focus, input[type=url]:focus, input[type=password]:focus, input[type=search]:focus {
+input[type=button]:focus, input[type=reset]:focus, input[type=submit]:focus, input[type=email]:focus, input[type=tel]:focus, input[type=url]:focus input[type=password]:focus, input[type=search]:focus {
   outline: none;
+}
+
+header::after, header::before,
+footer::after,
+footer::before,
+.comment-content::after,
+.comment-content::before,
+.entry-content::after,
+.entry-content::before,
+.site-content::after,
+.site-content::before,
+.site-footer::after,
+.site-footer::before,
+.site-header::after,
+.site-header::before,
+.footer-widgets::after,
+.footer-widgets::before {
+  content: none !important;
+  display: none !important;
 }
 
 .content-area {
   float: none !important;
+}
+
+.storefront-sorting {
+  display: none;
+}
+
+.archive .page-title,
+.archive .woocommerce-products-header {
+  padding-bottom: 0;
 }
 
 .content-area::before,
@@ -1101,6 +1129,17 @@ fieldset[disabled] .btn-brand, fieldset[disabled] .btn-brand:hover, fieldset[dis
 .single-product div.product p.price {
   margin: 0;
 }
+.single-product div.product p.price:after {
+  content: "excl. VAT.";
+  opacity: 50%;
+  font-size: 75%;
+  display: inline-block;
+  margin-left: 0.36em;
+}
+.single-product div.product p {
+  padding: 0;
+  margin: 0;
+}
 
 .single-product--extra-info .panel {
   width: 100% !important;
@@ -1286,6 +1325,14 @@ fieldset[disabled] .btn-brand, fieldset[disabled] .btn-brand:hover, fieldset[dis
 .fs-menu .fs-menu-footer p {
   color: rgba(255, 255, 255, 0.15);
 }
+.fs-menu .fs-menu-footer .menu {
+  display: flex;
+  justify-content: flex-end;
+}
+.fs-menu .fs-menu-footer .menu .menu-item {
+  flex-basis: calc(100% / 6);
+  text-align: right;
+}
 
 .site-header {
   border-bottom: 1px solid #e2e2e2;
@@ -1424,15 +1471,17 @@ fieldset[disabled] .btn-brand, fieldset[disabled] .btn-brand:hover, fieldset[dis
 .site-footer .nav {
   justify-content: flex-end;
 }
-.site-footer a.nav-link {
-  color: #a2a2a2;
+.site-footer .menu-item {
   display: inline-block;
   font-size: 1rem;
   margin: 0 1rem;
   padding: 0;
-  text-decoration: none;
 }
-.site-footer a.nav-link:hover {
+.site-footer .menu-item a {
+  color: #a2a2a2;
+  text-decoration: none !important;
+}
+.site-footer .menu-item a:hover {
   color: #737272;
 }
 
