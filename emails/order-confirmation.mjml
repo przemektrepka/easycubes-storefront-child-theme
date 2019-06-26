@@ -1,0 +1,198 @@
+<mjml>
+
+  <mj-head>
+    <mj-font name="Titillium" href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600" />
+    <mj-attributes>
+      <mj-all font-family="'Titillium', Helvetica, sans-serif" />
+      <mj-text padding="0 0 5px 0" color="#3c3c3b" line-height="130%" align="left" font-size="14px" />
+      <mj-table padding="0" />
+      <mj-section padding="0" />
+      <mj-column width="100%" padding="0" />
+      <mj-divider border-width="1px" border-color="#e2e2e2" padding="15px 0" />
+    </mj-attributes>
+    <mj-style inline="inline">
+      .order-table table {
+        padding:0;
+        margin:0;
+      }
+
+      .order-table tr td:nth-child(2) {
+        width: 15%;
+      }
+      .order-table tr td:last-child {
+        width: 30%;
+      }
+
+      .order-table td,
+      .order-table th {
+        text-align: left;
+        padding: 5px
+      }
+      .order-table thead th {
+        color: #2699d6;
+      }
+      .order-table tbody {
+        border-top: 2px solid #2699d6;
+      }
+      .order-table tbody td {
+        border-bottom: 1px solid #e2e2e2;
+      }
+      .order-table tbody tr:last-child td {
+        border-bottom: 1px solid #2699d6;
+      }
+      .order-table tfoot th {
+        text-align: right;
+        color: #b9b9b8;
+        font-weight: normal
+      }
+      .order-table tfoot td {
+        color: #737272;
+      }
+      .order-table tfoot tr:last-child * {
+        color: #2699d6;
+        border-top: 1px solid #2699d6;
+        border-bottom: 2px solid #2699d6;
+        font-weight: bold;
+      }
+    </mj-style>
+  </mj-head>
+
+  <mj-body background-color="#f6f6f6">
+
+    <mj-section>
+      <mj-column padding="25px">
+        <mj-image src="https://easycubes.com/shop/wp-content/uploads/eb-logo-color@4x.png" alt="EasyBuild Logo" align="center" border="none" width="200px" />
+      </mj-column>
+    </mj-section>
+
+    <mj-wrapper background-color="#fff" padding="25px">
+      <mj-section>
+        <mj-column>
+          <mj-text>Hi {{user_name}}!</mj-text>
+          <mj-text font-size="20px" font-weight="bold">Thanks for your order.</mj-text>
+          <mj-text>It’s on-hold until we confirm that payment has been received. In the meantime, here’s a reminder of what you ordered.</mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="20px 0">
+        <mj-column>
+          <mj-text font-size="20px" font-weight="bold" color="#0070a8">
+            Order #463 <small style="font-weight:normal; color:#90c5ec;">(June 20, 2019)</small>
+          </mj-text>
+        </mj-column>
+        <mj-column>
+          <mj-table css-class="order-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Cube Custom Color</td>
+                <td>2</td>
+                <td>&euro; 66,00</td>
+              </tr>
+              <tr>
+                <td>Acrilyc Cube Middle</td>
+                <td>20</td>
+                <td>&euro; 660,00</td>
+              </tr>
+              <tr>
+                <td>Acrylic M-shape Stand for Cover</td>
+                <td>2</td>
+                <td>&euro; 176,00</td>
+              </tr>
+              <tr>
+                <td>Cube White Gloss</td>
+                <td>2</td>
+                <td>&euro; 66,00</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="row" colspan="2">Subtotal:</th>
+                <td>&euro; 968,00</td>
+              </tr>
+              <tr>
+                <th scope="row" colspan="2">Shipping:</th>
+                <td>UPS Shipping</td>
+              </tr>
+              <tr>
+                <th scope="row" colspan="2">Payment method:</th>
+                <td>Direct bank transfer</td>
+              </tr>
+              <tr>
+                <th scope="row" colspan="2">Total:</th>
+                <td>&euro; 968,00</td>
+              </tr>
+            </tfoot>
+          </mj-table>
+        </mj-column>
+      </mj-section>
+
+      <mj-section>
+        <mj-column width="50%">
+          <mj-text font-size="16px" color="#2699d6">Invoice details</mj-text>
+          <mj-text>
+            <b>Trepka</b><br />
+            Przemysław Trepka<br />
+            Branickiego 21a<br />
+            02-297 Warszawa, Poland<br />
+            +48606208491<br/>
+            PL8522293956
+          </mj-text>
+        </mj-column>
+        <mj-column width="50%">
+          <mj-text font-size="16px" color="#2699d6">Shipping info</mj-text>
+          <mj-text>
+            <b>UPS Shipping</b><br />
+            Trepka<br />
+            Przemysław Trepka<br />
+            Branickiego 21a<br />
+            02-297 Warszawa, Poland<br />
+            +48606208491
+          </mj-text>
+        </mj-column>
+        <mj-column>
+          <mj-divider />
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="5px 0">
+        <mj-column>
+          <mj-text>We look forward to fulfilling your order soon.</mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section>
+        <mj-column>
+          <mj-text>Best regards,<br/>The EasyCubes<sup>&copy;</sup> Team</mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+
+    <mj-section>
+      <mj-column>
+        <mj-text font-size="12px" padding="25px" line-height="150%">
+          <b>Easybuild b.v.b.a.</b><br/>
+          <span style="color: #aaa">Address:</span><br/> Ondernemerstraat 11, 2500 Lier, Belgium<br/>
+          <span style="color: #aaa">Phone:</span><br/> +003 22 68 10 201
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <mj-section>
+      <mj-column>
+        <mj-text font-size="12px" padding="25px" line-height="150%" color="#aaa">
+          This is an automated message. Replying to it will not bring you any satisfaction. If&nbsp;you need to get in touch with us, please drop us a line at <a href="mailto:contact@easycubes.com" style="color:#aaa;">contact@easycubes.com</a>.
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+  </mj-body>
+
+</mjml>
+

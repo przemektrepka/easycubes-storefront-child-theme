@@ -1228,6 +1228,7 @@ fieldset[disabled] .btn-brand, fieldset[disabled] .btn-brand:hover, fieldset[dis
 
 .fs-menu {
   background-color: #0e84ff;
+  height: 100vh;
   left: 0;
   overflow-y: scroll;
   position: fixed;
@@ -1235,8 +1236,7 @@ fieldset[disabled] .btn-brand, fieldset[disabled] .btn-brand:hover, fieldset[dis
   top: 0;
   transform: translateY(-100vh);
   transition: transform cubic-bezier(0.77, 0, 0.175, 1) 0.8s;
-  height: 100vh;
-  z-index: 9999;
+  z-index: -1;
 }
 .fs-menu::before, .fs-menu::after {
   background: rgba(255, 255, 255, 0.2);
@@ -1256,16 +1256,17 @@ fieldset[disabled] .btn-brand, fieldset[disabled] .btn-brand:hover, fieldset[dis
   transition-delay: 0.15s, 1s;
 }
 .main-nav-active .fs-menu {
-  transform: translateY(0vh);
+  transform: translateY(0);
+  z-index: 9999;
 }
-.main-nav-active .fs-menu:before, .main-nav-active .fs-menu:after {
+.main-nav-active .fs-menu::before, .main-nav-active .fs-menu::after {
   height: 0;
   transform: translateY(100vh);
 }
-.main-nav-active .fs-menu:after {
+.main-nav-active .fs-menu::after {
   transition-delay: 0.15s, 0s;
 }
-.main-nav-active .fs-menu:before {
+.main-nav-active .fs-menu::before {
   transition-delay: 0.05s, 0s;
 }
 .fs-menu ul {
@@ -1379,7 +1380,7 @@ fieldset[disabled] .btn-brand, fieldset[disabled] .btn-brand:hover, fieldset[dis
 .fs-menu .fs-menu-contents .menu .sub-menu a {
   font-size: 1.1rem;
 }
-.fs-menu .fs-menu-contents .menu .sub-menu a:before {
+.fs-menu .fs-menu-contents .menu .sub-menu a::before {
   content: "";
   position: absolute;
   background: #fff;
@@ -1390,7 +1391,7 @@ fieldset[disabled] .btn-brand, fieldset[disabled] .btn-brand:hover, fieldset[dis
   transition: all 0.3s ease;
   z-index: -1;
 }
-.fs-menu .fs-menu-contents .menu .sub-menu a:hover:before {
+.fs-menu .fs-menu-contents .menu .sub-menu a:hover::before {
   width: 100%;
 }
 .fs-menu .fs-menu-contents .menu > .menu-item-has-children {
@@ -1512,8 +1513,8 @@ fieldset[disabled] .btn-brand, fieldset[disabled] .btn-brand:hover, fieldset[dis
 .woocommerce-active .site-header .site-header-cart .cart_drawer {
   padding-bottom: 0;
   position: relative;
-  transition: padding 360ms;
   width: 100%;
+  height: 0;
 }
 .woocommerce-active .site-header .site-header-cart .cart_drawer .widget_shopping_cart {
   background-color: #fff;
@@ -1526,7 +1527,8 @@ fieldset[disabled] .btn-brand, fieldset[disabled] .btn-brand:hover, fieldset[dis
   position: absolute;
   right: -15px;
   top: 100%;
-  transition: opacity 450ms;
+  transform: translate(200%, 0);
+  transition: opacity 0.5s, transform 0.5s;
   width: 200%;
 }
 .woocommerce-active .site-header .site-header-cart .cart_drawer .widget_shopping_cart_content,
@@ -1541,16 +1543,11 @@ fieldset[disabled] .btn-brand, fieldset[disabled] .btn-brand:hover, fieldset[dis
 .woocommerce-active .site-header .site-header-cart .cart_drawer .buttons {
   background-color: #fff;
 }
-.woocommerce-active .site-header .site-header-cart:hover {
-  margin-bottom: -1rem;
-}
-.woocommerce-active .site-header .site-header-cart:hover .cart_drawer {
-  padding-top: 1rem;
-}
 .woocommerce-active .site-header .site-header-cart:hover .widget_shopping_cart {
   display: block;
   font-size: 1rem;
   opacity: 1;
+  transform: translate(0, 0);
 }
 .woocommerce-active .site-header .site-header-cart:hover .widget_shopping_cart_content {
   height: 100%;
